@@ -44,28 +44,6 @@ body {
   border: none;
 }
 
-//  Styles for button
-// .load-more {
-//   position: relative;
-//   left: 50%;
-//   transform: translate(-50%, 0);
-
-//   height: 50px;
-//   width: 200px;
-//   border: none;
-//   margin: auto;
-
-//   background-color: #12d212;
-//   color: #ffffff;
-
-//   cursor: pointer;
-
-//   -webkit-box-shadow: 0px 10px 21px -5px rgba(0, 0, 0, 0.55);
-//   -moz-box-shadow: 0px 10px 21px -5px rgba(0, 0, 0, 0.55);
-//   box-shadow: 0px 10px 21px -5px rgba(0, 0, 0, 0.55);
-// }
-
-//  Styles for div
 .load-more-div {
   display: flex;
   align-items: center;
@@ -86,7 +64,7 @@ body {
   box-shadow: 0px 10px 21px -5px rgba(0, 0, 0, 0.55);
 }
 
-.is-hidden{
+.is-hidden {
   display: none;
 }
 
