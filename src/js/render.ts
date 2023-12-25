@@ -1,7 +1,7 @@
 import getRefs from './get-refs';
 const refs = getRefs();
 
-interface Image {
+export interface Image {
   largeImageURL: string;
   webformatURL: string;
   tags: string;

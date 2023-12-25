@@ -1,9 +1,18 @@
 import axios from 'axios';
-
+import { Image } from './render';
 const BASE_URL = 'https://pixabay.com/api/';
 const KEY = '32179167-903c9e169edcad7e661a9574c';
 
 export class ImagesApiService {
+  private searchQuery: string;
+  private page: number;
+  private per_page: number;
+  private image_type: string;
+  private orientation: string;
+  private safesearch: boolean;
+  private total: number;
+  private maxPages: number;
+
   constructor() {
     this.searchQuery = '';
     this.page = 1;
@@ -12,16 +21,17 @@ export class ImagesApiService {
     this.orientation = 'horizontal';
     this.safesearch = true;
     this.total = 0;
+    this.maxPages = 0;
   }
 
-  async fetchImages() {
+  async fetchImages(): Promise<Image[]> {
     const searchParams = new URLSearchParams({
       image_type: this.image_type,
       orientation: this.orientation,
-      safesearch: this.safesearch,
-      page: this.page,
-      per_page: this.per_page,
-      total: this.total,
+      safesearch: this.safesearch.toString(),
+      page: this.page.toString(),
+      per_page: this.per_page.toString(),
+      total: this.total.toString(),
     });
 
     const url = `${BASE_URL}?key=${KEY}&q=${this.searchQuery}&${searchParams}`;
@@ -30,21 +40,13 @@ export class ImagesApiService {
 
     try {
       this.maxPages = response.data.totalHits;
-      const images = await response.data.hits;
+      const images: Image[] = await response.data.hits;
       this.total = response.data.totalHits;
       this.incrementPage();
       return images;
     } catch (error) {
       throw new Error(response.statusText);
     }
-    //   if (response) {
-    //     this.maxPages = response.data.totalHits;
-    //     const images = await response.data.hits;
-    //     this.total = response.data.totalHits;
-    //     this.incrementPage();
-    //     return images;
-    //   }
-    //   throw new Error(response.statusText);
   }
 
   get query() {
