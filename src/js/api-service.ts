@@ -5,13 +5,13 @@ const KEY = '32179167-903c9e169edcad7e661a9574c';
 
 export class ImagesApiService {
   private searchQuery: string;
-  private page: number;
-  private per_page: number;
+  public page: number;
+  public per_page: number;
   private image_type: string;
   private orientation: string;
   private safesearch: boolean;
   private total: number;
-  private maxPages: number;
+  public maxPages: number;
 
   constructor() {
     this.searchQuery = '';
