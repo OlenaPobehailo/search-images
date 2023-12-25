@@ -1,9 +1,19 @@
 import getRefs from './get-refs';
 const refs = getRefs();
 
-export default function renderGallery(images) {
+interface Image {
+  largeImageURL: string;
+  webformatURL: string;
+  tags: string;
+  likes: number;
+  views: number;
+  comments: number;
+  downloads: number;
+}
+
+export default function renderGallery(images: Image[]) {
   return images
-    .map(image => {
+    .map((image: Image) => {
       return `
           <div class="photo-card">
           <a class="gallery__item" href="${image.largeImageURL}" width='320'>
