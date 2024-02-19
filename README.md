@@ -22,8 +22,8 @@ proficiency in JavaScript (JS) and TypeScript (TS).
 
 ## Technologies Used
 
-- JavaScript
-- TypeScript
+- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [TypeScript](https://www.typescriptlang.org/)
 - [Pixabay API](https://pixabay.com)
 - [Notiflix](https://www.notiflix.com/)
 - [SimpleLightbox](https://simplelightbox.com/)
